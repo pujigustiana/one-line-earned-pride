@@ -6,6 +6,9 @@ const parts = [
   " she'd built from scrap, and it sang.",
 ];
 const line = parts.join("");
+if (line.length < 1 || line.length > 240) {
+  throw new Error("entry must be 1 to 240 characters, got " + line.length);
+}
 const dest = "/output/entry.txt";
 mkdirSync("/output", { recursive: true });
 writeFileSync(dest, line, "utf8");
